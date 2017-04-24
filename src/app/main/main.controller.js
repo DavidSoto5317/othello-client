@@ -10,10 +10,10 @@
   function mainController($log, socketFactory) {
     var vm = this,
         N = 8,
-        coordinatorIP = "http://" + prompt("Coordinator IP:") + ":3000",
+        coordinatorHost = prompt("Coordinator fully qualified host and port:"),
         tournamentID = parseInt(prompt("Tournament ID:")),
         mainSocket = socketFactory({
-          ioSocket: io.connect(coordinatorIP, {'sync disconnect on unload': true})
+          ioSocket: io.connect(coordinatorHost, {'sync disconnect on unload': true})
         });
 
     // Player not ready
